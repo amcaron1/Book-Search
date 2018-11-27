@@ -1,10 +1,10 @@
 import React from "react";
-import "./ResultList.css";
+import "./SearchList.css";
 
-const ResultList = props => (
+// List for storing the results of the google books search
+const SearchList = props => (
   <ul className="list-group">
     {props.results.map((result, index) =>
-      // {console.log("hi");
       (
       <li className="list-group-item container" key={result.volumeInfo.industryIdentifiers[0].identifier}>
         <div className="row">
@@ -25,7 +25,6 @@ const ResultList = props => (
                     onClick={props.handleSaveBook}
                     className="save-button" name={index}
                     >
-                    {/* <a href="#">Save</a> */}
                     Save
                   </button>
                   <button className="view-button">
@@ -48,4 +47,4 @@ const ResultList = props => (
   </ul>
 );
 
-export default ResultList;
+export default SearchList;

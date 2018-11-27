@@ -1,10 +1,10 @@
 import React from "react";
 import "./SearchForm.css";
 
+// Form for keyword input used in google books search
 const SearchForm = props => (
   <form align="center">
     <div className="form-group container">
-      {/* <label htmlFor="search">Search:</label> */}
       <div className="row">
         <div className="col-md-9">
           <input

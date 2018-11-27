@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm.js";
-import ResultList from "./ResultList.js";
+import SearchList from "./SearchList.js";
 import API from "../../utils/API";
 
 class Search extends Component {
@@ -9,39 +9,32 @@ class Search extends Component {
     results: []
   };
 
+  // Searches for books with the search keywords, sets the results state with the results of the query, and resets the search state
   searchBooks = query => {
     API.search(query)
       .then(res => this.setState({ results: res.data.items, search: "" }))
-      // .then(res => this.setState({ results: res.data.items }))
-      // .then(res =>
-      //   this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-      // )
-      // .then(res => console.log({ results: res.data.items }))
       .catch(err => console.log(err));
   };
 
+  // Sets a new search state based on the user input
   handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;
-    // console.log("event :", event);
-    // console.log("event.target.value :", event.target.value);
     this.setState({
       [name]: value
     });
   };
 
-  // When the form is submitted, search the Google Books for `this.state.search`
+  // Calls the searchBooks function when the search form is submitted
   handleFormSubmit = event => {
-    console.log("event.target.className: ", event.target.className);
     event.preventDefault();
     this.searchBooks(this.state.search);
   };
 
+  // Grabs the results array index from the button name and saves the book in the mongo database
   handleSaveBook = event => {
     event.preventDefault();
     const i = event.target.name;
-    console.log("i: ", i);
-    console.log("this.state.results: ", this.state.results);
     API.saveBook({
       title: this.state.results[i].volumeInfo.title,
       authors: this.state.results[i].volumeInfo.authors[0],
@@ -61,7 +54,7 @@ class Search extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <ResultList 
+        <SearchList 
           results={this.state.results}
           handleSaveBook={this.handleSaveBook}
         />

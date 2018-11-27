@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NavTabs.css";
 
+// Navbar for switching pages
 const NavTabs = () => (
   <ul className="nav">
     <li className="nav-item nav-link"><b>Google Books:</b></li>

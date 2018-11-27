@@ -1,6 +1,7 @@
 import React from "react";
 import "./SavedList.css";
 
+// List for displaying the books from the mongo database
 const SavedList = props => (
   <ul className="list-group">
     {props.books.map(book => (
@@ -23,7 +24,6 @@ const SavedList = props => (
                     onClick={props.handleDeleteBook}
                     className="save-button" name={book._id}
                     >
-                    {/* <a href="#">Save</a> */}
                     Delete
                   </button>
                   <button className="view-button">

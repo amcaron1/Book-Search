@@ -3,11 +3,10 @@ import axios from "axios";
 const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
 const MAX = "&maxResults=10";
 
-// Export an object with a "search" method that searches the Giphy API for the passed query
+// Export an object with a "search" method that searches the google books API for the passed query
 export default {
   search: function(query) {
     return axios.get(BASEURL + query + MAX);
-    // return axios.get(BASEURL + query);
   },
   // Gets all books
   getBooks: function() {
@@ -28,4 +27,4 @@ export default {
   }
 };
 
-// &key=AIzaSyCIuCsgDPUvNoh2Z3gG-AmYEIcivgQe_eE
+// google books &key=AIzaSyCIuCsgDPUvNoh2Z3gG-AmYEIcivgQe_eE
