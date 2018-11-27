@@ -8,7 +8,7 @@ const SavedList = props => (
         <div className="row">
           <div className="col-md-3">
             <h5>{book.title}</h5>
-            <p>Written by {book.authors[0]}</p>
+            <p>Written by {book.authors}</p>
             <img
               alt={book.title}
               className="img-fluid"
